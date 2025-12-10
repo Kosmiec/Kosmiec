@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./JQuery.js"></script>
+</head>
+
+<body>
+    <div style="width: 100px; height: 100px; background-color: aqua; position:absolute;"></div>
+    <script>
+        let i1
+        let i2
+        let i3
+        let i4
+        let speed = 1
+        // dół
+        $(document).keydown(function (key) {
+            if (key.key == 's' && !i1) {
+                i1 = setInterval(function () {
+                    let poz = $("div").position()
+                    if (poz.top < window.innerHeight - 100) {
+                        $("div").css("top", "+=2px")
+                    }
+                    else {
+                        clearInterval(i1)
+                        i1 = null;
+                    }
+                }, speed)
+            }
+        }).keyup(function (key) {
+            if (key.key == 's') {
+                clearInterval(i1)
+                i1 = null;
+            }
+        })
+        // góra
+        $(document).keydown(function (key) {
+            if (key.key == 'w' && !i2) {
+                i2 = setInterval(function () {
+                    let poz = $("div").position()
+                    if (poz.top > 1) {
+                        $("div").css("top", "-=2px")
+                    }
+                    else {
+                        clearInterval(i2)
+                        i2 = null;
+                    }
+                }, speed)
+            }
+        }).keyup(function (key) {
+            if (key.key == 'w') {
+                clearInterval(i2)
+                i2 = null
+            }
+        })
+        // prawo
+        $(document).keydown(function (key) {
+            if (key.key == 'd' && !i3) {
+                i3 = setInterval(function () {
+                    let poz = $("div").position()
+                    if (poz.left < window.innerWidth - 100) {
+                        $("div").css("left", "+=2px")
+                    }
+                    else {
+                        clearInterval(i3)
+                        i3 = null;
+                    }
+                }, speed)
+            }
+        }).keyup(function (key) {
+            if (key.key == 'd') {
+                clearInterval(i3)
+                i3 = null
+            }
+        })
+        // lewo
+        $(document).keydown(function (key) {
+            if (key.key == 'a' && !i4) {
+                i4 = setInterval(function () {
+                    let poz = $("div").position()
+                    if (poz.left > 1) {
+                        $("div").css("left", "-=2px")
+                    }
+                    else {
+                        clearInterval(i4)
+                        i4 = null;
+                    }
+                }, speed);
+            }
+        }).keyup(function (key) {
+            if (key.key == 'a') {
+                clearInterval(i4)
+                i4 = null
+            }
+        })
+    </script>
+</body>
+
+</html>
